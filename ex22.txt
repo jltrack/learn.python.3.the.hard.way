@@ -1,0 +1,166 @@
+pwd
+print working directory
+hostname
+my computer's network name
+mkdir
+make directory
+cd
+change directory
+ls
+list directory
+rmdir
+remove directory
+pushd
+push directory
+popd
+pop directory
+cp
+copy a file or directory
+mv
+move a file or directory
+less
+page through a file
+cat
+print the whole file
+xargs
+execute arguments
+find
+find files
+grep
+find things inside files
+man
+read a manual page
+apropos
+find which man page is appropriate
+env
+look at your environment
+echo
+print some arguments
+export
+export/set a new environment variable
+exit
+exit the shell
+sudo
+DANGER! become super user root DANGER!
+
+You just learned what pwd does, which means "print working directory." What's a directory? It's a folder. Folder and directory are the same thing, and they're used interchangeably. When you open your file browser on your computer to graphically find files, you are walking through folders. Those folders are the exact same things as these "directories" we're going to work with.
+
+This means if you get lost at any time type:
+pwd
+cd ~
+The first command pwd tells you where you are. The second command cd ~ takes you home so you can try again.
+
+$ cd grape/
+$ pwd
+~/temp/stuff/things/orange/apple/pear/grape
+$ cd ..
+$ cd ..
+$ pwd
+~/temp/stuff/things/orange/apple
+# You should also see how I use the .. to move "up" in the tree and path.
+
+$ ls
+grape
+$ cd ../../../
+$ ls
+orange
+
+In this example you'll learn how to remove a directory. It's easy. You just go to the directory right above it, then type rmdir <dir>, replacing <dir> with the name of the directory to remove.
+If you try to do rmdir on macOS and it refuses to remove the directory even though you are positive it's empty, then there is actually a file in there called .DS_Store. In that case, type rm -rf <dir> instead (replace <dir> with the directory name).
+
+The pushd command takes your current directory and "pushes" it into a list for later, then it changes to another directory. It's like saying, "Save where I am, then go here."
+
+The popd command takes the last directory you pushed and "pops" it off, taking you back there.
+
+Finally, on Unix pushd, if you run it by itself with no arguments, it will switch between your current directory and the last one you pushed. It's an easy way to switch between two directories. This does not work in PowerShell.
+
+$ cd temp
+$ touch iamcool.txt
+$ ls
+iamcool.txt
+You learned how to make an empty file. On Unix touch does this, and it also changes the times on the file. I rarely use it for anything other than making empty files.
+
+Use the cp -r command to copy more directories with files in them.
+
+$ less test.txt
+[displays file here]
+#This is one way to look at the contents of a file.
+
+$ less test2.txt
+[displays file here]
+$ cat test2.txt
+I am a fun guy.
+Don't you know why?
+Because I make poems,
+that make babies cry.
+
+exit
+#exit a Terminal
+
+xargs
+construct argument list(s) and execute command
+xargs means "execute arguments". Some commands can not take input straight from the standard input but only as arguments (e.g. echo, rm). xargs converts data from the standard input into executable arguments and tells the following command to execute those arguments.
+
+sudo
+su (switch user)
+do action (run the specified command under specified user)
+
+chmod
+modify user access/permission – simple way
+      u = user
+      g = group
+      o = other
+      d = directory (if element is a directory)
+      l = link (if element is a file link)
+      r = read (read permissions)
+      w = write (write permissions)
+      x = eXecute (only useful for scripts and
+      programs)
+
+chown
+change the owner of a file
+      ex --> chown bob hello.txt
+chown user:bob report.txt = changes the user owning report.txt to 'user' and the group owning it to 'bob' -R = recursively affect all the sub folders
+      ex --> chown -R bob:bob /home/Daniel
+
+https://learncodethehardway.org/unix/bash_cheat_sheet.pdf
+
+https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html
+
+"" makes a string
+You embed variables inside a string by using a special {} sequence and then put the variable you want inside the {} characters. You also must start the string with the letter f for "format", as in f"Hello {somevar}". This little f before the " (double-quote) and the {} characters tell Python 3, "Hey, this string needs to be formatted. Put these variables in there."
+You can put variables in a string but you need to include f for format
+
+Escape	What it does.
+\\	Backslash (\)
+\'	Single-quote (')
+\"	Double-quote (")
+\a	ASCII bell (BEL)
+\b	ASCII backspace (BS)
+\f	ASCII formfeed (FF)
+\n	ASCII linefeed (LF)
+\N{name}	Character named name in the Unicode database (Unicode only)
+\r	Carriage Return (CR)
+\t	Horizontal Tab (TAB)
+\uxxxx	Character with 16-bit hex value xxxx
+\Uxxxxxxxx	Character with 32-bit hex value xxxxxxxx
+\v	ASCII vertical tab (VT)
+\ooo	Character with octal value ooo
+\xhh	Character with hex value hh
+
+In Terminal, where you normally run python3.6 to run your scripts, type pydoc input. Read what it says.
+Get out of pydoc by typing q to quit.
+
+close -- Closes the file. Like File->Save.. in your editor.
+read -- Reads the contents of the file. You can assign the result to a variable.
+readline -- Reads just one line of a text file.
+truncate -- Empties the file. Watch out if you care about the file.
+write('stuff') -- Writes "stuff" to the file.
+seek(0) -- Move the read/write location to the beginning of the file.
+
+Functions do three things:
+
+They name pieces of code the way variables name strings and numbers.
+They take arguments the way your scripts take argv.
+Using 1 and 2, they let you make your own "mini-scripts" or "tiny commands."
+You can create a function by using the word def in Python.
