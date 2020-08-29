@@ -40,19 +40,19 @@ def bear_room():
             print("I got no idea what that means.")
 
 
-    def cthulhu_room():
-        print("Here you see the great evil Cthulhu.")
-        print("He, it, whatever stares at you and you go insane.")
-        print("Do you flee for your life or eat your head?")
+def cthulhu_room():
+    print("Here you see the great evil Cthulhu.")
+    print("He, it, whatever stares at you and you go insane.")
+    print("Do you flee for your life or eat your head?")
 
-        choice = input(">")
+    choice = input(">")
 
-        if "flee" in choice:
-            start()
-        elif "head" in choice:
-            dead("Well that was tasty!")
-        else:
-            cthulhu_room()
+    if "flee" in choice:
+        start()
+    elif "head" in choice:
+        dead("Well that was tasty!")
+    else:
+        cthulhu_room()
 
 
 def dead(why):
